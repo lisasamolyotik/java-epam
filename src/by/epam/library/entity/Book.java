@@ -1,5 +1,6 @@
 package by.epam.library.entity;
 
+import by.epam.library.exception.BookException;
 import by.epam.library.validator.BookValidator;
 
 import java.util.List;
@@ -21,26 +22,38 @@ public class Book {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(String title) throws Exception{
         if (BookValidator.isTitleValid(title)) {
             this.title = title;
         }
-        //TODO throw exception
+        else {
+            throw new BookException("There isn't book's title");
+        }
     }
 
     public List<Author> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(List<Author> authors) {
-        this.authors = authors;
+    public void setAuthors(List<Author> authors) throws Exception{
+        if (BookValidator.isAuthorsValid(authors)) {
+            this.authors = authors;
+        }
+        else {
+            throw new BookException("List of authors is empty");
+        }
     }
 
     public int getNumberOfPages() {
         return numberOfPages;
     }
 
-    public void setNumberOfPages(int numberOfPages) {
-        this.numberOfPages = numberOfPages;
+    public void setNumberOfPages(int numberOfPages) throws Exception{
+        if (BookValidator.isNumberOfPagesValid(numberOfPages)) {
+            this.numberOfPages = numberOfPages;
+        }
+        else {
+            throw new BookException("Number of pages isn't valid");
+        }
     }
 }
