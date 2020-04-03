@@ -2,6 +2,8 @@ package by.epam.library.services;
 
 import by.epam.library.entity.Author;
 import by.epam.library.entity.Book;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -10,6 +12,8 @@ import java.util.Optional;
 import java.util.stream.Stream;
 
 public class BookService {
+    private final Logger logger = LogManager.getLogger();
+
     public boolean containBigBook(Stream<Book> books) {
         return books.anyMatch(book -> book.getNumberOfPages() > 200);
     }
@@ -23,6 +27,8 @@ public class BookService {
     }
 
     public Stream<Book> filterSingleAuthorBook(Stream<Book> books) {
+        logger.info("Find single author books");
+
         return books.filter(book -> book.getAuthors().size() == 1)
                     .peek(book -> System.out.println("[peek] Book with a single author: " + book));
     }
