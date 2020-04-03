@@ -63,5 +63,9 @@ public class Main {
         }
 
         List<Book> singleAuthorBooks = bookService.filterSingleAuthorBook(Arrays.stream(books)).collect(Collectors.toList());
+
+        System.out.println("Parallel stream example");
+
+        singleAuthorBooks = bookService.filterSingleAuthorBook(Arrays.stream(books).parallel()).collect(Collectors.toList());
     }
 }
