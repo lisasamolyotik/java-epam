@@ -56,4 +56,14 @@ public class Book {
             throw new BookException("Number of pages isn't valid");
         }
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Book{");
+        sb.append("title='").append(title).append('\'');
+        sb.append(", authors=").append(authors);
+        sb.append(", numberOfPages=").append(numberOfPages);
+        sb.append('}');
+        return sb.toString();
+    }
 }
