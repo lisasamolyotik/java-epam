@@ -61,4 +61,13 @@ public class Author implements Serializable {
     public void setBooks(List<Book> books) {
         this.books = books;
     }
+
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("Author{");
+        sb.append("age=").append(age);
+        sb.append(", fullName='").append(fullName).append('\'');
+        sb.append('}');
+        return sb.toString();
+    }
 }
