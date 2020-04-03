@@ -20,31 +20,31 @@ public class Main {
         authors[1] = new Author("Stephen King", (short) 72);
         authors[2] = new Author("Peter Straub", (short) 77);
 
-        ArrayList<Author> bookAuthors = new ArrayList<Author>();
-        ArrayList<Book> authorBooks = new ArrayList<Book>();
+        ArrayList<Author> bookAuthors1 = new ArrayList<Author>();
+        ArrayList<Book> authorBooks1 = new ArrayList<Book>();
 
-        bookAuthors.add(authors[0]);
+        bookAuthors1.add(authors[0]);
 
-        books[0] = new Book("Harry Potter and the Philosopher's Stone", bookAuthors, 223);
-        books[1] = new Book("Harry Potter and the Chamber of Secrets", bookAuthors, 251);
+        books[0] = new Book("Harry Potter and the Philosopher's Stone", bookAuthors1, 223);
+        books[1] = new Book("Harry Potter and the Chamber of Secrets", bookAuthors1, 251);
 
-        authorBooks.add(books[0]);
-        authorBooks.add(books[1]);
+        authorBooks1.add(books[0]);
+        authorBooks1.add(books[1]);
 
-        authors[0].setBooks(authorBooks);
+        authors[0].setBooks(authorBooks1);
 
-        bookAuthors.clear();
-        authorBooks.clear();
+        ArrayList<Author> bookAuthors2 = new ArrayList<Author>();
+        ArrayList<Book> authorBooks2 = new ArrayList<Book>();
 
-        bookAuthors.add(authors[1]);
-        bookAuthors.add(authors[2]);
+        bookAuthors2.add(authors[1]);
+        bookAuthors2.add(authors[2]);
 
-        books[2] = new Book("The Talisman", bookAuthors, 921);
+        books[2] = new Book("The Talisman", bookAuthors2, 921);
 
-        authorBooks.add(books[2]);
+        authorBooks2.add(books[2]);
 
-        authors[1].setBooks(authorBooks);
-        authors[2].setBooks(authorBooks);
+        authors[1].setBooks(authorBooks2);
+        authors[2].setBooks(authorBooks2);
 
         BookService bookService = new BookService();
 
@@ -61,5 +61,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println("Error: " + e.getMessage());
         }
+
+        List<Book> singleAuthorBooks = bookService.filterSingleAuthorBook(Arrays.stream(books)).collect(Collectors.toList());
     }
 }

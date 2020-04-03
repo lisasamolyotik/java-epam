@@ -24,7 +24,7 @@ public class BookService {
 
     public Stream<Book> filterSingleAuthorBook(Stream<Book> books) {
         return books.filter(book -> book.getAuthors().size() == 1)
-                    .peek(book -> System.out.println("Book with a single author: " + book));
+                    .peek(book -> System.out.println("[peek] Book with a single author: " + book));
     }
 
     public Stream<Book> sortBooksByPages(Stream<Book> books) {
