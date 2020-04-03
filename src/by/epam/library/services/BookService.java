@@ -2,11 +2,10 @@ package by.epam.library.services;
 
 import by.epam.library.entity.Author;
 import by.epam.library.entity.Book;
-import org.w3c.dom.ls.LSOutput;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class BookService {

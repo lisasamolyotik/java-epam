@@ -3,9 +3,10 @@ package by.epam.library.entity;
 import by.epam.library.exception.AuthorException;
 import by.epam.library.validator.AuthorValidator;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Author {
+public class Author implements Serializable {
     private short age;
     private String fullName;
     private List<Book> books;
